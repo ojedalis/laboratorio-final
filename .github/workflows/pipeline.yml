@@ -24,11 +24,11 @@ jobs:
         uses: SonarSource/sonarqube-scan-action@v4
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          with:
-            args:
-              -Dsonar.projectKey="ojedalis"
-              -Dsonar.organization="ojedalis"
-            projectBaseDir: .
+        with:
+          args:
+            -Dsonar.projectKey="ojedalis"
+            -Dsonar.organization="ojedalis"
+          projectBaseDir: .
 
       - name: Validate Quality Gate
         env:
