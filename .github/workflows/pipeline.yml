@@ -26,7 +26,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args:
-            -Dsonar.projectKey="ojedalis"
+            -Dsonar.projectKey="ojedalis_laboratorio-final"
             -Dsonar.organization="ojedalis"
           projectBaseDir: .
 
