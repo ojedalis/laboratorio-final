@@ -26,8 +26,8 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           with:
             args:
-              -Dsonar.projectKey=ojedalis
-              -Dsonar.organization=ojedalis
+              -Dsonar.projectKey="ojedalis"
+              -Dsonar.organization="ojedalis"
             projectBaseDir: .
 
       - name: Validate Quality Gate
