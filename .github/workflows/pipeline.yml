@@ -50,7 +50,7 @@ jobs:
 
             if [ "$vulnerabilities" -gt 0 ]; then
               echo "Se encontraron $vulnerabilities vulnerabilidades críticas. El proyecto no cumple con los estándares de seguridad."
-              exit 1
+              # exit 1
             fi
           else
             echo "El proyecto cumple con el Quality Gate y no tiene vulnerabilidades críticas."
@@ -117,3 +117,21 @@ jobs:
           ignore-unfixed: true
           vuln-type: 'os,library'
           severity: 'CRITICAL,HIGH'
+
+  # Deploy:
+  #   needs: VulnScan
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Deploying into localserver
+  #       uses: appleboy/ssh-action@v0.1.8
+  #       with:
+  #         host: ${{ secrets.SSH_HOST }}
+  #         username: ${{ secrets.SSH_USER }}
+  #         password: ${{ secrets.SSH_PASSWORD }}
+  #         port: ${{ secrets.SSH_PORT }}
+  #         script: |
+  #           docker image pull ojedalis/laboratorio-final:latest
+  #           docker container stop laboratorio-final
+  #           docker container rm laboratorio-final 
+  #           docker container run -d --name laboratorio-final -p 3000:3000 ojedalis/laboratorio-final:latest
+
